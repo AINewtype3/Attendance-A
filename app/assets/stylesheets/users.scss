@@ -1,3 +1,76 @@
-// Place all the styles related to the Users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.table > tbody > tr > td {
+  vertical-align: middle;
+  text-align: center;
+}
+
+/* ユーザー情報下ボタン */
+
+.btn-users-show {
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
+
+/* ユーザー勤怠情報テーブル */
+
+#table-attendances {
+  th {
+    vertical-align: middle;
+    text-align: center;
+  }
+  td {
+    vertical-align: middle;
+    text-align: center;
+  }
+}
+
+/* 入力フォーム */
+
+.label-signup {
+  margin-top: 5px;
+}
+
+.btn-signup {
+  margin-top: 10px;
+}
+
+.label-user--edit {
+  margin-top: 5px;
+}
+
+.btn-user--edit {
+  margin-top: 10px;
+}
+
+/* ユーザー一覧ページ */
+
+.search-form {
+  margin-left   : 80%;
+}
+
+.search-field {
+  margin-left   : 80%;
+}
+
+.button {
+  border-radius : 5%;
+  color         : #fff;
+  background    : #6666ff;
+}
+
+#table-users {
+  td {
+    vertical-align: middle;
+    text-align: left;
+  }  
+}
+
+/* 基本情報編集画面 */
+
+.label-basic-info {
+  margin-top: 5px;
+}
+
+.btn-basic-info {
+  margin: 15px 0;
+  width: 30%;
+}
