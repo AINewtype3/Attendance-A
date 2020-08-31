@@ -31,8 +31,8 @@ ActiveRecord::Schema.define(version: 20200828035701) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "admin", default: false
-    t.datetime "basic_time", default: "2020-08-26 22:30:00"
-    t.datetime "work_time", default: "2020-08-26 23:00:00"
+    t.datetime "basic_time", default: "2020-08-30 22:30:00"
+    t.datetime "work_time", default: "2020-08-30 23:00:00"
   end
 
 end
