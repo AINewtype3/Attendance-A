@@ -23,10 +23,18 @@
   </table>
 </div>
 
+<% if logged_in? %>
+  <% if current_user.admin? %>
+    <p><%= link_to "【所属長承認申請のお知らせ】", "#" %></p>
+    <p><%= link_to "【勤怠変更申請のお知らせ】", "#" %></p>
+    <p><%= link_to "【残業申請のお知らせ】", "#" %></p>
+  <% end %>
+<% end %>
+
 <div class="btn-users-show">
   <%= link_to "勤怠を編集", attendances_edit_one_month_user_path(date: @first_day), class: "btn btn-primary" %>
   <%= link_to "CSV出力", "#", class: "btn btn-primary" %> 
-  <%= link_to "勤怠修正ログ（承認済）", "#", class: "btn btn-primary" %>
+  <p><%= link_to "勤怠修正ログ（承認済）", "#", class: "btn btn-primary" %></p>
 </div>
 
 <div>
@@ -112,7 +120,9 @@
         <td colspan="6">総合勤務時間</td>
         <td>累計在社時間</td>
         <td rowspan="2" colspan="6"></td>
-        <td rowspan="2"></td>
+        <td rowspan="2">
+          <%= link_to "申請", "#", class: "btn btn-primary" %>
+        </td>
       </tr>
       <tr>
         <td colspan="2"><%= @attendances.count %></td>
