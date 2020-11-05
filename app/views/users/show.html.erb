@@ -1,4 +1,6 @@
 <% provide(:title, @user.name) %>
+
+<% unless current_user.admin? %>
 <div>
   <table class="table table-bordered table-condensed user-table">
     <tr>
@@ -27,11 +29,11 @@
 </div>
 
 <% if logged_in? %>
-  <% if current_user.admin? %>
+  <!--<% if current_user.admin? %>-->
     <p><%= link_to "【所属長承認申請のお知らせ】", "#" %></p>
     <p><%= link_to "【勤怠変更申請のお知らせ】", "#" %></p>
     <p><%= link_to "【残業申請のお知らせ】", "#" %></p>
-  <% end %>
+  <!--<% end %>-->
 <% end %>
 
 <div class="btn-users-show">
@@ -135,3 +137,4 @@
     </tfoot>    
   </table>
 </div>
+<% end %>
