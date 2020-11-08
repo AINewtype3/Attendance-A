@@ -31,9 +31,9 @@ ActiveRecord::Schema.define(version: 20201027224612) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "admin", default: false
-    t.datetime "basic_time", default: "2020-11-07 22:30:00"
-    t.datetime "work_start_time", default: "2020-11-08 00:00:00"
-    t.datetime "work_end_time", default: "2020-11-08 09:00:00"
+    t.datetime "basic_time", default: "2020-11-08 22:30:00"
+    t.datetime "work_start_time", default: "2020-11-09 00:00:00"
+    t.datetime "work_end_time", default: "2020-11-09 09:00:00"
     t.string "remember_digest"
     t.integer "employee_number"
   end
