@@ -1,0 +1,23 @@
+<% provide(:title, 'atwork employee') %>
+
+<% if current_user.admin? %>
+  <h1>出勤中社員一覧</h1>
+  
+  <div>
+    <table class="table table-bordered table-condensed table-hover" id="atwork-users">
+      <thead>
+        <tr>
+          <th colspan="1">社員番号</th>
+          <th colspan="1">名前</th>
+        </tr>
+      </thead>
+      
+      <tbody>
+        <tr>
+          <td colspan="1"></td>
+          <td colspan="1"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+<% end %>
