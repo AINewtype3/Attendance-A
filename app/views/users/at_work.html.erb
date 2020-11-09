@@ -11,12 +11,16 @@
           <th colspan="1">名前</th>
         </tr>
       </thead>
+
+      <% ary = [@atwork_users_employee_number, @atwork_users].transpose %>      
       
       <tbody>
-        <tr>
-          <td colspan="1"></td>
-          <td colspan="1"></td>
-        </tr>
+        <% ary.each do |key, value| %>
+          <tr>
+            <td colspan="1"><%= sprintf("%04d",key) %></td>
+            <td colspan="1"><%= value %></td>
+          </tr>
+        <% end %>
       </tbody>
     </table>
   </div>
