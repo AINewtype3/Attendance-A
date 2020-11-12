@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20201027224612) do
+ActiveRecord::Schema.define(version: 20201112140801) do
 
   create_table "attendances", force: :cascade do |t|
     t.date "worked_on"
@@ -21,6 +21,15 @@ ActiveRecord::Schema.define(version: 20201027224612) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_attendances_on_user_id"
+  end
+
+  create_table "relationships", force: :cascade do |t|
+    t.integer "users_id"
+    t.integer "bosses_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bosses_id"], name: "index_relationships_on_bosses_id"
+    t.index ["users_id"], name: "index_relationships_on_users_id"
   end
 
   create_table "users", force: :cascade do |t|

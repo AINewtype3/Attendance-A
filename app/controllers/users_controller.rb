@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     @atwork_users = []
     User.all.each do |user|
       if user.attendances.any?{|day|
-         ( day.worked_on == Date.today &&
+         ( day.worked_on == Date.current &&
            !day.started_at.blank? &&
            day.finished_at.blank? )
           }
