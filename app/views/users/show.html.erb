@@ -29,11 +29,11 @@
 </div>
 
 <% if logged_in? %>
-  <!--<% if current_user.admin? %>-->
+  <% if current_user.boss? %>
     <p><%= link_to "【所属長承認申請のお知らせ】", "#" %></p>
     <p><%= link_to "【勤怠変更申請のお知らせ】", "#" %></p>
     <p><%= link_to "【残業申請のお知らせ】", "#" %></p>
-  <!--<% end %>-->
+  <% end %>
 <% end %>
 
 <div class="btn-users-show">
