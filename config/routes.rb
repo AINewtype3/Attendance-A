@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'base_points/index'
+
   get 'sessions/new'
 
   root 'static_pages#top'
