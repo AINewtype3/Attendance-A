@@ -1,19 +1,26 @@
 <h1>拠点一覧</h1>
 
 <div>
-    <table class="table table-bordered table-condensed table-hover" id="table-attendances">
-        <thead>
-            <tr>
-                <th></th>
-                <th></th>
-                <th>拠点番号</th>
-                <th>拠点名</th>
-                <th>勤怠種類</th>
-            </tr>
-        </thead>
-    </table>
-</div>
+  <table class="table table-bordered table-condensed table-hover" id="table-base-points">
+    <thead>
+      <tr>
+        <th></th>
+        <th></th>
+        <th>拠点番号</th>
+        <th>拠点名</th>
+        <th>勤怠種類</th>
+      </tr>
+    </thead>
 
-<div>
-    
+    <% @base_points.each do |base_point| %>
+      <tbody>
+        <tr>
+          <td><%= link_to "修正", "#", class: "btn btn-primary" %></td>
+          <td><%= link_to "削除", "#", class: "btn btn-primary" %></td>
+          <td></td>
+          <td></td>
+        </tr>
+    <% end %>
+      </tbody>
+  </table>
 </div>
