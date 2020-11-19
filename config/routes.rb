@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'base_points/index'
 
   get 'sessions/new'
 
@@ -20,4 +19,7 @@ Rails.application.routes.draw do
     end
     resources :attendances, only: :update
   end
+  
+  resources :base_points
+  
 end
