@@ -37,3 +37,13 @@ User.create!(name: "上長B",
                password: password,
                password_confirmation: password)
 end
+
+5.times do |n|
+  number = n
+  name = ""
+  type = ""
+  BasePoint.create!(number: number,
+                    name: name,
+                    type: type)
+  
+end
