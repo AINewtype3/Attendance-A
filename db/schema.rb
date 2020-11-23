@@ -24,9 +24,9 @@ ActiveRecord::Schema.define(version: 20201119040458) do
   end
 
   create_table "base_points", force: :cascade do |t|
-    t.integer "number"
-    t.string "name"
-    t.string "type"
+    t.integer "base_point_number"
+    t.string "base_point_name"
+    t.string "attendance_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -48,9 +48,9 @@ ActiveRecord::Schema.define(version: 20201119040458) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "admin", default: false
-    t.datetime "basic_time", default: "2020-11-18 22:30:00"
-    t.datetime "work_start_time", default: "2020-11-19 00:00:00"
-    t.datetime "work_end_time", default: "2020-11-19 09:00:00"
+    t.datetime "basic_time", default: "2020-11-22 22:30:00"
+    t.datetime "work_start_time", default: "2020-11-23 00:00:00"
+    t.datetime "work_end_time", default: "2020-11-23 09:00:00"
     t.string "remember_digest"
     t.integer "employee_number"
     t.boolean "boss", default: false

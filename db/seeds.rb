@@ -39,11 +39,11 @@ User.create!(name: "上長B",
 end
 
 5.times do |n|
-  number = n
-  name = ""
-  type = ""
-  BasePoint.create!(number: number,
-                    name: name,
-                    type: type)
+  base_point_number = n+1
+  base_point_name = ""
+  attendance_type = ""
+  BasePoint.create!(base_point_number: base_point_number,
+                    base_point_name: base_point_name,
+                    attendance_type: attendance_type)
   
 end

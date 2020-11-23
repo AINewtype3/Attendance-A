@@ -21,5 +21,4 @@ Rails.application.routes.draw do
   end
   
   resources :base_points
-  
 end
