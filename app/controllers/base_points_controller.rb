@@ -8,11 +8,5 @@ class BasePointsController < ApplicationController
   end
   
   def update
-    if @base_point.update_attributes(base_point_params)
-      flash[:success] = "ユーザー情報を更新しました。"
-      redirect_to @base_point
-    else
-      render :edit      
-    end
   end
 end
