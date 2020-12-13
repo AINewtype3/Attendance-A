@@ -10,11 +10,17 @@ class BasePointsController < ApplicationController
   def update
     @base_point = BasePoint.find(params[:id])
     if @base_point.update_attributes(base_point_params)
-      flash[:success] = "ユーザー情報を更新しました。"
+      flash[:success] = "拠点情報を更新しました。"
       redirect_to base_points_url
     else
       render :edit      
     end
+  end
+  
+  def destroy
+    @base_point.destroy
+    flash[:success] = "#{@base_point.name}のデータを削除しました。"
+    redirect_to users_url
   end
   
   
