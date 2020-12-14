@@ -3,6 +3,10 @@ class BasePointsController < ApplicationController
     @base_points = BasePoint.all
   end
   
+  def new
+    @base_points = BasePoint.new
+  end
+  
   def edit
     @base_point = BasePoint.find(params[:id])
   end
