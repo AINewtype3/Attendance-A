@@ -18,9 +18,10 @@ class BasePointsController < ApplicationController
   end
   
   def destroy
+    @base_point = BasePoint.find(params[:id])
     @base_point.destroy
-    flash[:success] = "#{@base_point.name}のデータを削除しました。"
-    redirect_to users_url
+    flash[:success] = "拠点番号#{@base_point.base_point_number}のデータを削除しました。"
+    redirect_to base_points_url
   end
   
   
