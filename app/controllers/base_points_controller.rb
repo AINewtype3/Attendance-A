@@ -7,6 +7,16 @@ class BasePointsController < ApplicationController
     @base_point = BasePoint.new
   end
   
+  def create
+    @base_point = BasePoint.new(base_point_params)
+    if @base_point.save
+      flash[:success] = '新規追加に成功しました。'
+      redirect_to base_points_url
+    else
+      render :new
+    end
+  end
+  
   def edit
     @base_point = BasePoint.find(params[:id])
   end
