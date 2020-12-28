@@ -4,7 +4,7 @@ class BasePointsController < ApplicationController
   end
   
   def new
-    @base_points = BasePoint.new
+    @base_point = BasePoint.new
   end
   
   def edit
