@@ -3,6 +3,11 @@
 
 <%= render 'search_form' %>
 
+<%= form_tag import_users_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "インポート", class: 'btn btn-success' %>
+<% end %>
+
 <div class="col-md-10 col-md-offset-1">
   <%= will_paginate %>
   <table class="table table-condensed table-hover" id="table-users">
