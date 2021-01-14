@@ -4,8 +4,9 @@
 <%= render 'search_form' %>
 
 <%= form_tag import_users_path, multipart: true do %>
-  <%= file_field_tag :file %>
-  <%= submit_tag "インポート", class: 'btn btn-success' %>
+  <%= file_field_tag :file, class: "file" %>
+  <br>
+  <%= submit_tag "CSVをインポート", class: 'btn btn-primary' %>
 <% end %>
 
 <div class="col-md-10 col-md-offset-1">
