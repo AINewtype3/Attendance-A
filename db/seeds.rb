@@ -2,41 +2,18 @@
 
 User.create!(name: "管理者",
              email: "admin@email.com",
-             department: "総務部",
+             affiliation: "総務部",
              employee_number: 1,
+             uid: 1,
+             basic_work_time: "8:00",
+             work_start_time: "9:00",
+             work_end_time: "18:00",
              password: "password",
              password_confirmation: "password",
+             superior: false,
              admin: true)
              
-User.create!(name: "上長A",
-             email: "boss-a@email.com",
-             department: "管理部",
-             employee_number: 2,
-             password: "password",
-             password_confirmation: "password",
-             superior: true)
 
-User.create!(name: "上長B",
-             email: "boss-b@email.com",
-             department: "管理部",
-             employee_number: 3,
-             password: "password",
-             password_confirmation: "password",
-             superior: true)
-
-10.times do |n|
-  name  = Faker::Name.name
-  email = "sample-#{n+1}@email.com"
-  department = ""
-  employee_number = n+3
-  password = "password"
-  User.create!(name: name,
-               email: email,
-               department: department,
-               employee_number: employee_number,
-               password: password,
-               password_confirmation: password)
-end
 
 5.times do |n|
   base_point_number = n+1
