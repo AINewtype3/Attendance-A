@@ -33,27 +33,29 @@ ActiveRecord::Schema.define(version: 20201119040458) do
 
   create_table "relationships", force: :cascade do |t|
     t.integer "users_id"
-    t.integer "bosses_id"
+    t.integer "superiors_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["bosses_id"], name: "index_relationships_on_bosses_id"
+    t.index ["superiors_id"], name: "index_relationships_on_superiors_id"
     t.index ["users_id"], name: "index_relationships_on_users_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
-    t.string "department"
+    t.string "affiliation"
+    t.integer "employee_number"
+    t.string "uid"
+    t.datetime "basic_work_time", default: "2021-01-17 22:30:00"
+    t.datetime "work_start_time", default: "2021-01-18 00:00:00"
+    t.datetime "datetime", default: "2021-01-18 09:00:00"
+    t.datetime "work_end_time", default: "2021-01-18 09:00:00"
+    t.boolean "superior", default: false
+    t.boolean "admin", default: false
     t.string "password_digest"
+    t.string "remember_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "admin", default: false
-    t.datetime "basic_time", default: "2020-11-22 22:30:00"
-    t.datetime "work_start_time", default: "2020-11-23 00:00:00"
-    t.datetime "work_end_time", default: "2020-11-23 09:00:00"
-    t.string "remember_digest"
-    t.integer "employee_number"
-    t.boolean "boss", default: false
   end
 
 end
