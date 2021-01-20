@@ -1,3 +1,5 @@
+/* ユーザー情報ページ */
+
 .table > tbody > tr > td {
   vertical-align: middle;
   text-align: center;
@@ -46,11 +48,11 @@
 /* ユーザー一覧ページ */
 
 .search-form {
-  margin-left   : 80%;
+  margin-left: 80%;
 }
 
 .search-field {
-  margin-left   : 80%;
+  margin-left: 80%;
 }
 
 .button {
@@ -68,6 +70,17 @@
 
 .file {
   border: solid 1px #808080;
+}
+
+.user-btn-delete, .user-btn-edit {
+  margin-top : 10px;
+}
+
+#user-btn-edit {
+  vertical-align: middle;
+  padding: 20px;
+  text-align: left;
+  background-color: #f5f5f5;
 }
 
 /* 出勤社員一覧画面 */
