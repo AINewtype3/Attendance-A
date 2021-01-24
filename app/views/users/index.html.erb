@@ -11,7 +11,7 @@
 
 <div class="col-md-10 col-md-offset-1">
   <%= will_paginate %>
-  <table class="table table-condensed table-hover" id="table-users">
+  <table class="table table-condensed" id="table-users">
     <thead>
       <tr>
         <th><%= User.human_attribute_name :name %></th>
@@ -19,6 +19,7 @@
     </thead>
 
     <% @users.each do |user| %>
+    <tbody>  
       <tr>
         <td>
           <%= link_to user.name, user %><br>
@@ -26,16 +27,24 @@
             <%= link_to "削除", user, method: :delete,
               data: { confirm: "削除してよろしいですか？" },
               class: "btn btn-primary btn-sm user-btn-delete" %>
-              <table class="table table-bordered table-condensed table-hover" id="user-btn-edit">
-                <thead>
-                  <tr>
-                    <th><%= link_to "編集", "#", class: "btn btn-primary btn-lg" %></th>
-                  </tr>
-                </thead>
-              </table>
+            <div class="panel-group" id="accordion">
+              <div class="panel panel-default">
+                <div class="card-heading">
+                  <h4 class="panel-title">
+                    <button type="button" data-toggle="collapse" data-target="#accordion<%= user.id %>" class="btn btn-primary btn-lg">編集</button>
+                  </h4>
+                </div>
+                <div id="accordion<%= user.id %>" class="collapse" >
+                  <div class="panel-body">
+                    Panel A
+                  </div>
+                </div>
+              </div>  
+            </div>
           <% end %>
         </td>
       </tr>
+    </tbody>
     <% end %>
   </table>
   <%= will_paginate %>
