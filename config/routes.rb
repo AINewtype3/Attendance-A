@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   post   '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
   
+  
   resources :users do
     member do
       get 'edit_basic_info'
@@ -22,4 +23,5 @@ Rails.application.routes.draw do
   end
   
   resources :base_points
+  
 end

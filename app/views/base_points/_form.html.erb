@@ -1,5 +1,5 @@
 <%= form_with(model: @base_point, local: true) do |f| %>
-  <%= render 'shared/error_messages_for_base', obj: @base_point %>
+  <%= render 'shared/error_messages_base', obj: @base_point %>
 
   <%= f.label :base_point_number, class: "label-#{yield(:class_text)}" %>
   <%= f.text_field :base_point_number, class: "form-control" %>

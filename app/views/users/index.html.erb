@@ -19,22 +19,19 @@
     </thead>
 
     <% @users.each do |user| %>
-    <tbody>  
+    <tbody>
       <tr>
         <td>
           <% if current_user.admin? && !current_user?(user) %>
           <%= user.name %><br>
             <%= link_to "削除", user, method: :delete,
-              data: { confirm: "削除してよろしいですか？" },
-              class: "btn btn-primary btn-sm user-btn-delete" %>
+                                      data: { confirm: "削除してよろしいですか？" },
+                                      class: "btn btn-primary btn-sm user-btn-delete" %>
             <div class="panel-group" id="accordion">
               <div class="panel panel-default">
                 <div class="panel-heading">
                   <h4 class="panel-title">
-                    <button type="button" 
-                    data-toggle="collapse" 
-                    data-target="#collapse<%= user.id %>" 
-                    class="btn btn-primary btn-lg">編集</button>
+                    <button type="button" data-toggle="collapse" data-target="#collapse<%= user.id %>" class="btn btn-primary btn-lg">編集</button>
                   </h4>
                 </div>
                 <div id="collapse<%= user.id %>" class="panel-collapse collapse">

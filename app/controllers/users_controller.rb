@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy, :edit_basic_info, :update_basic_info]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :update_basic_info]
   before_action :logged_in_user, only: [:index, :show, :edit, :update, :destroy, :edit_basic_info, :update_basic_info]
   before_action :correct_user, only: [:edit, :update]
   before_action :admin_user, only: [:index, :destroy, :edit_basic_info, :update_basic_info]
@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   before_action :set_one_month, only: :show
   
   def index
+    @users = User.all
     @users = User.paginate(page: params[:page]).search(params[:search])
   end
   
@@ -66,15 +67,6 @@ class UsersController < ApplicationController
   end
 
   def update_basic_info
-    @members = User.all
-    @members.each do |member|
-      unless member.update_attributes(basic_info_params)
-        render :edit_basic_info
-      else
-        flash[:success] = "基本情報を更新しました。"
-      end
-    end
-    redirect_to @user
   end
   
   def import
@@ -86,10 +78,8 @@ class UsersController < ApplicationController
   private
 
     def user_params
-      params.require(:user).permit(:name, :email, :affiliation, :password, :password_confirmation)
+      params.require(:user).permit(:name, :email, :affiliation, :employee_number, :uid, :password, 
+      :basic_work_time, :designated_work_start_time, :designated_work_end_time)
     end
     
-    def basic_info_params
-      params.require(:user).permit(:basic_work_time, :designated_work_start_time, :designated_work_end_time)
-    end
 end
