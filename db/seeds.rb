@@ -17,8 +17,8 @@ User.create!(name: "管理者",
 
 5.times do |n|
   base_point_number = n+1
-  base_point_name = ""
-  attendance_type = ""
+  base_point_name = n+1
+  attendance_type = "出勤"
   BasePoint.create!(base_point_number: base_point_number,
                     base_point_name: base_point_name,
                     attendance_type: attendance_type)
