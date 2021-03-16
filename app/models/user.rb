@@ -1,5 +1,11 @@
 class User < ApplicationRecord
   has_many :attendances, dependent: :destroy
+  
+  has_many :member, class_name: "Apply", foreign_key: "member_id", dependent: :destroy
+  has_many :superior, class_name: "Apply", foreign_key: "superior_id", dependent: :destroy
+  has_many :member_user, through: :applies, source: :superior
+  has_many :superior_user, through: :applies, source: :member
+  
   attr_accessor :remember_token
   before_save { self.email = email.downcase }
 
