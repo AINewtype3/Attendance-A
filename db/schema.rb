@@ -13,6 +13,8 @@
 ActiveRecord::Schema.define(version: 20210316034747) do
 
   create_table "applies", force: :cascade do |t|
+    t.date "application_month"
+    t.integer "status"
     t.integer "member_id"
     t.integer "superior_id"
     t.datetime "created_at", null: false

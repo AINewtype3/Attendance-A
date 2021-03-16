@@ -1,10 +1,10 @@
 class User < ApplicationRecord
   has_many :attendances, dependent: :destroy
   
-  has_many :member, class_name: "Apply", foreign_key: "member_id", dependent: :destroy
-  has_many :superior, class_name: "Apply", foreign_key: "superior_id", dependent: :destroy
-  has_many :member_user, through: :applies, source: :superior
-  has_many :superior_user, through: :applies, source: :member
+  has_many :members, class_name: "Apply", foreign_key: "member_id", dependent: :destroy
+  has_many :superiors, class_name: "Apply", foreign_key: "superior_id", dependent: :destroy
+  has_many :member_users, through: :members, source: :superior
+  has_many :superior_users, through: :superiors, source: :member
   
   attr_accessor :remember_token
   before_save { self.email = email.downcase }
@@ -71,4 +71,6 @@ class User < ApplicationRecord
     ['id', 'name', 'email', 'affiliation', 'employee_number', 'uid', 'basic_work_time', 
     'designated_work_start_time', 'designated_work_end_time', 'superior','admin', 'password']
   end
+  
+  scope :superior_users, -> { where(superior: true) }
 end
