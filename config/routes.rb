@@ -22,6 +22,8 @@ Rails.application.routes.draw do
     end
     resources :attendances, only: :update
     collection { post :import }
+    
+    resources :applies
   end
   
   resources :base_points

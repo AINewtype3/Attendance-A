@@ -1,9 +1,9 @@
 class User < ApplicationRecord
   has_many :attendances, dependent: :destroy
   
-  has_many :members, class_name: "Apply", foreign_key: "member_id", dependent: :destroy
-  has_many :superiors, class_name: "Apply", foreign_key: "superior_id", dependent: :destroy
+  has_many :members, class_name: "Apply", foreign_key: "member_id"
   has_many :member_users, through: :members, source: :superior
+  has_many :superiors, class_name: "Apply", foreign_key: "superior_id"
   has_many :superior_users, through: :superiors, source: :member
   
   attr_accessor :remember_token

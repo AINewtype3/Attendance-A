@@ -28,6 +28,7 @@ class UsersController < ApplicationController
   def show
     @worked_sum = @attendances.where.not(started_at: nil).count
     @superior_users = User.superior_users
+    @apply = Apply.new
   end
   
   def new

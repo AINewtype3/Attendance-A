@@ -126,13 +126,12 @@
         <td rowspan="2" colspan="6"></td>
         <td rowspan="2">
           <%= "所属長承認　未" =%><br>
-          <%= form_with(model: @apply, local: true) do |f| %>
-            <%= f.collection_select(:name, @superior_users, :id, :name, :include_blank => true ) %>
-            <%= f.hidden_field :superior_id, :value => @user.id %>
-            <%= f.hidden_field :member_id, :value => @user.id %>
-            <%= f.hidden_field :application_month, :value => @attendances.first %>
-            <%= f.hidden_field :status, :value => 1 %><br>
-            <%= link_to "申請", "#", class: "btn btn-primary" %>
+          <%= form_with(model: @apply, url: user_applies_path(@user), method: :post, local: true) do |f| %>
+            <%= f.collection_select(:superior_id, @superior_users, :id, :name, prompt: "" ) %>
+            <%= f.hidden_field :member_id, value: @user.id %>
+            <%= f.hidden_field :application_month, value: @attendances.first %>
+            <%= f.hidden_field :status, value: "1" %><br>
+            <%= f.submit "申請", class: "btn btn-primary" %>
           <% end %>
         </td>
       </tr>
