@@ -1,6 +1,7 @@
 class AppliesController < ApplicationController
   
   def index
+    @applies = Apply.where(superior_id: @user_id)
   end
   
   def show
@@ -15,8 +16,10 @@ class AppliesController < ApplicationController
     if @apply.save
       flash[:success] = '勤怠申請に成功しました。'
       redirect_to user_url(@user)
-    end
+    else
       flash.now[:danger] = "勤怠申請に失敗しました。"
+      render user_url(@user)
+    end
   end
   
   def edit

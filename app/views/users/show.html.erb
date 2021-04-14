@@ -29,9 +29,15 @@
 
 <% if logged_in? %>
   <% if current_user.superior? %>
-    <p><%= link_to "【所属長承認申請のお知らせ】", "#" %></p>
-    <p><%= link_to "【勤怠変更申請のお知らせ】", "#" %></p>
-    <p><%= link_to "【残業申請のお知らせ】", "#" %></p>
+    <% if @applies.present? %>
+      <%= link_to "【所属長承認申請のお知らせ】", user_applies_path(user_id: @user), remote: true, class: "editlink" %>
+      <span class="editlink"><%= @applies %>件のお知らせ</span>
+      <div id="apply-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
+    <% else %>
+      <p>【所属長承認申請のお知らせ】</p>
+    <% end %>
+      <p><%= link_to "【勤怠変更申請のお知らせ】", "#" %></p>
+      <p><%= link_to "【残業申請のお知らせ】", "#" %></p>
   <% end %>
 <% end %>
 
@@ -125,7 +131,7 @@
         <td>累計在社時間</td>
         <td rowspan="2" colspan="6"></td>
         <td rowspan="2">
-          <%= "所属長承認　未" =%><br>
+           所属長承認 <br>
           <%= form_with(model: @apply, url: user_applies_path(@user), method: :post, local: true) do |f| %>
             <%= f.collection_select(:superior_id, @superior_users, :id, :name, prompt: "" ) %>
             <%= f.hidden_field :member_id, value: @user.id %>
